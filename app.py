@@ -214,11 +214,31 @@ def inject_css():
         border: 1px solid {GRIS_LIGHT} !important;
         border-radius: 4px !important;
         font-family: 'Trebuchet MS', sans-serif !important;
+        font-size: 14px !important;
+        min-height: 42px !important;
+        padding: 8px 12px !important;
     }}
     .stTextInput > div > div > input:focus,
     .stTextArea > div > div > textarea:focus {{
         border-color: {BLEU} !important;
         box-shadow: 0 0 0 2px {BLEU_LIGHT} !important;
+    }}
+    /* Forcer la hauteur visible des inputs */
+    .stTextInput > div {{
+        min-height: 44px !important;
+    }}
+    div[data-baseweb="input"] {{
+        min-height: 42px !important;
+    }}
+    div[data-baseweb="input"] input {{
+        min-height: 42px !important;
+        padding: 8px 12px !important;
+        font-size: 14px !important;
+    }}
+    div[data-baseweb="select"] > div {{
+        min-height: 42px !important;
+        padding: 6px 12px !important;
+        font-size: 14px !important;
     }}
 
     /* Boutons */
@@ -229,10 +249,12 @@ def inject_css():
         border-radius: 4px;
         font-family: 'Trebuchet MS', sans-serif;
         font-weight: 700;
-        font-size: 13px;
-        padding: 8px 18px;
+        font-size: 14px;
+        padding: 10px 18px;
         cursor: pointer;
         transition: background 0.15s;
+        min-height: 44px;
+        width: 100%;
     }}
     .stButton > button:hover {{
         background: {ROUGE_DARK} !important;
@@ -285,19 +307,25 @@ def inject_css():
     /* Padding global */
     .block-container {{ padding: 0 !important; max-width: 100% !important; }}
     .main > div {{ padding: 0 !important; }}
+    section[data-testid="stMain"] > div {{ padding: 0 !important; }}
 
     /* Colonnes internes */
-    [data-testid="column"] {{ padding: 0 4px !important; }}
+    [data-testid="column"] {{ padding: 0 6px !important; }}
 
     /* Labels */
     .stTextInput label, .stTextArea label, .stSelectbox label,
     .stRadio label, .stCheckbox label {{
         font-family: 'Trebuchet MS', sans-serif !important;
-        font-size: 11px !important;
+        font-size: 12px !important;
         font-weight: 700 !important;
         color: {GRIS_MED} !important;
         text-transform: uppercase !important;
         letter-spacing: 0.5px !important;
+        margin-bottom: 4px !important;
+    }}
+    /* Espacement entre les champs */
+    div[data-testid="stVerticalBlock"] > div {{
+        margin-bottom: 2px;
     }}
 
     /* Masquer le label "satisfaction" des radios */
